@@ -6,8 +6,14 @@ cp config.fish ~/.config/fish/config.fish
 cp vimrc ~/.vimrc
 ```
 
-# i3
-In Ubuntu's repos. Install with:
+# [Fish](https://github.com/fish-shell/fish-shell)
+Friendly interactive shell. Install with:
+```bash
+apt install fish
+```
+
+# [i3](https://github.com/i3/i3)
+Tiling window manager. Install with:
 ```bash
 apt install i3-wm
 ```
@@ -19,15 +25,14 @@ Install needed programs for this i3 config:
 apt install -y feh i3lock rofi thunar
 ```
 
-# rofi
-In Ubuntu's repos. Install with:
+# [rofi](https://github.com/DaveDavenport/rofi)
+dmenu replacement. Used for easier launching apps with i3. Install with:
 
 ```bash
 apt install -y rofi
 ```
 
 ## Setup with i3
-
 Add to `/etc/i3/config` that `rofi` is run instead of the standard `dmenu` with:
 
 ```bash
@@ -36,9 +41,9 @@ bindsym $mod+d exec rofi -show drun
 
 To configure the theme for Rofi, use `rofi-theme-selector`.
 
-# Ranger
-File browser for your terminal.
-In Ubuntu's repos. Install with:
+# [Ranger](https://github.com/ranger/ranger)
+File manager for your terminal.
+Install with:
 
 ```bash
 apt install -y ranger
@@ -52,7 +57,8 @@ apt install -y ranger
 5. To debug, run `fc-list | grep Hack` to see what name the font is registered with.
 6. To see which characters are in the fonts, use `gucharmap`.
 
-# Polybar
+# [Polybar](https://github.com/jaagr/polybar)
+Add a status bar to your i3 setup!
 
 1. Download repo for Polybar from Github: https://github.com/jaagr/polybar/wiki
 
@@ -82,7 +88,7 @@ polybar example &
 
 6. Add `exec_always --no-startup-id $HOME/.config/polybar/launch.sh` to i3 config.
 
-# Clean Ubuntu
+# Clean up Ubuntu
 Run this to remove stuff we never use:
 
 ```
