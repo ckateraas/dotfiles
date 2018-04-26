@@ -1,5 +1,5 @@
 # Dotfiles
-```
+```bash
 cp gitconfig ~/.gitconfig
 cp tmux.conf ~/.tmux.conf
 cp config.fish ~/.config/fish/config.fish
@@ -8,21 +8,21 @@ cp vimrc ~/.vimrc
 
 # i3
 In Ubuntu's repos. Install with:
-```
+```bash
 apt install i3-wm
 ```
 
 ## Extra programs
 Install needed programs for this i3 config:
 
-```
+```bash
 apt install -y feh i3lock rofi thunar
 ```
 
 # rofi
 In Ubuntu's repos. Install with:
 
-```
+```bash
 apt install -y rofi
 ```
 
@@ -30,7 +30,7 @@ apt install -y rofi
 
 Add to `/etc/i3/config` that `rofi` is run instead of the standard `dmenu` with:
 
-```
+```bash
 bindsym $mod+d exec rofi -show drun
 ```
 
@@ -40,7 +40,7 @@ To configure the theme for Rofi, use `rofi-theme-selector`.
 File browser for your terminal.
 In Ubuntu's repos. Install with:
 
-```
+```bash
 apt install -y ranger
 ```
 
