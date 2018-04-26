@@ -1,0 +1,7 @@
+[alias]
+	st = status
+	ds = diff --staged
+	co = checkout
+	cm = commit --message
+	unstage = reset HEAD --
+	a = add .
