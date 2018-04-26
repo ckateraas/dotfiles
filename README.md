@@ -6,33 +6,33 @@ cp config.fish ~/.config/fish/config.fish
 cp vimrc ~/.vimrc
 ```
 
-# [Fish](https://github.com/fish-shell/fish-shell)
+## [Fish](https://github.com/fish-shell/fish-shell)
 Friendly interactive shell. Install with:
 ```bash
 apt install fish
 ```
 
-# [i3](https://github.com/i3/i3)
+## [i3](https://github.com/i3/i3)
 Tiling window manager. Install with:
 ```bash
 apt install i3-wm
 ```
 
-## Extra programs
+### Extra programs
 Install needed programs for this i3 config:
 
 ```bash
 apt install -y feh i3lock rofi thunar
 ```
 
-# [rofi](https://github.com/DaveDavenport/rofi)
+## [rofi](https://github.com/DaveDavenport/rofi)
 dmenu replacement. Used for easier launching apps with i3. Install with:
 
 ```bash
 apt install -y rofi
 ```
 
-## Setup with i3
+### Setup with i3
 Add to `/etc/i3/config` that `rofi` is run instead of the standard `dmenu` with:
 
 ```bash
@@ -41,7 +41,7 @@ bindsym $mod+d exec rofi -show drun
 
 To configure the theme for Rofi, use `rofi-theme-selector`.
 
-# [Ranger](https://github.com/ranger/ranger)
+## [Ranger](https://github.com/ranger/ranger)
 File manager for your terminal.
 Install with:
 
@@ -49,7 +49,7 @@ Install with:
 apt install -y ranger
 ```
 
-# Hack font
+## Hack font
 1. Get font from Nerd Fonts repo: https://github.com/ryanoasis/nerd-fonts/releases
 2. Unzip into `/usr/share/fonts/`.
 3. Run `fc-cache -fv` to register new font. Check output for something similar to `Hack Nerd Font: 4 fonts`.
@@ -57,7 +57,7 @@ apt install -y ranger
 5. To debug, run `fc-list | grep Hack` to see what name the font is registered with.
 6. To see which characters are in the fonts, use `gucharmap`.
 
-# [Polybar](https://github.com/jaagr/polybar)
+## [Polybar](https://github.com/jaagr/polybar)
 Add a status bar to your i3 setup!
 
 1. Download repo for Polybar from Github: https://github.com/jaagr/polybar/wiki
@@ -88,7 +88,7 @@ polybar example &
 
 6. Add `exec_always --no-startup-id $HOME/.config/polybar/launch.sh` to i3 config.
 
-# Clean up Ubuntu
+## Clean up Ubuntu
 Run this to remove stuff we never use:
 
 ```
