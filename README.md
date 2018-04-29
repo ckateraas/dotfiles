@@ -1,15 +1,59 @@
 # Dotfiles
 ```bash
-cp gitconfig ~/.gitconfig
-cp tmux.conf ~/.tmux.conf
-cp config.fish ~/.config/fish/config.fish
-cp vimrc ~/.vimrc
+ln -s gitconfig ~/.gitconfig
+ln -s tmux.conf ~/.tmux.conf
+ln -s config.fish ~/.config/fish/config.fish
+ln -s vimrc ~/.vimrc
 ```
 
 ## [Fish](https://github.com/fish-shell/fish-shell)
 Friendly interactive shell. Install with:
+
 ```bash
 apt install fish
+```
+
+### Default shell
+Set Fish as your default shell with:
+
+```
+chsh yourname -s /usr/bin/fish
+```
+
+## [Docker](https://www.docker.com/)
+Option 1: Get `.deb` from https://download.docker.com/linux/ubuntu/dists/artful/pool/stable/
+and use `dpkg -i` to install it.
+
+Option 2: Follow instructions on Docker's install page: https://docs.docker.com/install/linux/docker-ce/debian/#set-up-the-repository
+
+### Docker Compose
+A nice addition to Docker is Docker Compose. Install with the following:
+
+```bash
+sudo curl -L https://github.com/docker/compose/releases/download/1.21.0/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+```
+
+## [pass](https://www.passwordstore.org/)
+Password manager. Intall with:
+
+```bash
+apt instal pass
+```
+
+## [Atom IDE](http://atom.io/)
+Nice editor by Github!
+
+1. Get `.deb` from https://atom.io/
+2. (Get needed .so for atom with `apt install libgconf-2-4`)
+3. `dpkg -i atom.deb`
+4. Install neat packages (below)
+
+### List of neat packages for Atom
+A few nice packages to make Atom even nicer to use.
+
+ ```bash
+apm install dracula-syntax intentions multi-cursor atom-clock file-icons language-javascript-jsx prettier-atom atom-import-js git-blame linter zentabs busy-signal git-time-machine linter-ui-default
 ```
 
 ## [i3](https://github.com/i3/i3)
@@ -22,7 +66,7 @@ apt install i3-wm
 Install needed programs for this i3 config:
 
 ```bash
-apt install -y feh i3lock rofi thunar
+apt install -y feh i3lock rofi
 ```
 
 ## [rofi](https://github.com/DaveDavenport/rofi)
