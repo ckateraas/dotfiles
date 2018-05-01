@@ -140,3 +140,7 @@ apt-get remove account-plugin-facebook account-plugin-flickr account-plugin-jabb
 ```
 
 > Use minimal install to skip this step
+
+## Nifty programs
+- [Arduino IDE](https://www.arduino.cc/en/guide/linux)
+- [pCloud](https://blog.pcloud.com/pcloud-drive-for-linux/)
