@@ -115,20 +115,7 @@ apt install -y cmake cmake-data libcairo2-dev libxcb1-dev libxcb-ewmh-dev libxcb
 
 4. `cp polybarConfig ~/.config/polybar/config`.
 
-5. Add `~/.config/polybar/launch.sh` with the following content.
-
-```bash
-#!/usr/bin/env sh
-
-# Terminate already running bar instances
-killall -q polybar
-
-# Wait until the processes have been shut down
-while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
-
-# Launch bars
-polybar example &
-```
+5. Move `launch.sh` into `~/.config/polybar/launch.sh`
 
 6. Add `exec_always --no-startup-id $HOME/.config/polybar/launch.sh` to i3 config.
 
