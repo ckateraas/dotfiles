@@ -5,3 +5,5 @@
 	cm = commit --message
 	unstage = reset HEAD --
 	a = add .
+	prune = fetch origin --prune
+	
