@@ -6,27 +6,33 @@ ln -s config.fish ~/.config/fish/config.fish
 ln -s vimrc ~/.vimrc
 ```
 
-## [Fish](https://github.com/fish-shell/fish-shell)
-Friendly interactive shell. Install with:
+## Fish
+Install Fish for Ubuntu with the following command:
 
 ```bash
 apt install fish
 ```
 
-### Default shell
+### Fish as default shell
 Set Fish as your default shell with:
 
 ```
-chsh yourname -s /usr/bin/fish
+$ chsh yourname -s /usr/bin/fish
 ```
 
-## [Docker](https://www.docker.com/)
-Option 1: Get `.deb` from https://download.docker.com/linux/ubuntu/dists/artful/pool/stable/
-and use `dpkg -i` to install it.
+## Docker
+Two ways of installing Docker.
 
-Option 2: Follow instructions on Docker's install page: https://docs.docker.com/install/linux/docker-ce/debian/#set-up-the-repository
+- Follow instructions on Docker's install page: https://docs.docker.com/install/linux/docker-ce/debian/#set-up-the-repository
+- Get `.deb` from https://download.docker.com/linux/ubuntu/dists/artful/pool/stable/amd64/
+and use `dpkg` to install it.
 
-### Docker Compose
+```
+$ curl https://download.docker.com/linux/ubuntu/dists/artful/pool/stable/amd64/docker-ce_18.03.1~ce-0~ubuntu_amd64.deb -O docker.deb
+$ dpkg -i docker.deb
+```
+
+## Docker Compose
 A nice addition to Docker is Docker Compose. Install with the following:
 
 ```bash
@@ -34,8 +40,18 @@ sudo curl -L https://github.com/docker/compose/releases/download/1.21.0/docker-c
 sudo chmod +x /usr/local/bin/docker-compose
 ```
 
+## NodeJS and NPM
+Download the `.deb` file from NodeJS' website and install by extracting the File
+into `/usr/local`.
+
+```sh
+$ curl https://nodejs.org/dist/latest/node-v10.5.0-linux-x64.tar.gz -O node.tar.gz
+$ tar -xf node.tar.gz --strip-components=1 -C /usr/local
+
+```
+
 ## [pass](https://www.passwordstore.org/)
-Password manager. Intall with:
+Password manager. Install with:
 
 ```bash
 apt instal pass
@@ -45,7 +61,7 @@ apt instal pass
 Nice editor by Github!
 
 1. Get `.deb` from https://atom.io/
-2. (Get needed .so for atom with `apt install libgconf-2-4`)
+2. (Get needed `.so` for atom with `apt install libgconf-2-4`)
 3. `dpkg -i atom.deb`
 4. Install neat packages (below)
 
@@ -57,12 +73,13 @@ apm install dracula-syntax intentions multi-cursor atom-clock file-icons languag
 ```
 
 ## [i3](https://github.com/i3/i3)
-Tiling window manager. Install with:
+Tiling window manager.
+
 ```bash
 apt install i3-wm
 ```
 
-### Extra programs
+### Programs used in config
 Install needed programs for this i3 config:
 
 ```bash
@@ -70,24 +87,16 @@ apt install -y feh i3lock rofi
 ```
 
 ## [rofi](https://github.com/DaveDavenport/rofi)
-dmenu replacement. Used for easier launching apps with i3. Install with:
+dmenu replacement. Used for easier launching apps with i3.
 
 ```bash
 apt install -y rofi
-```
-
-### Setup with i3
-Add to `/etc/i3/config` that `rofi` is run instead of the standard `dmenu` with:
-
-```bash
-bindsym $mod+d exec rofi -show drun
 ```
 
 To configure the theme for Rofi, use `rofi-theme-selector`.
 
 ## [Ranger](https://github.com/ranger/ranger)
 File manager for your terminal.
-Install with:
 
 ```bash
 apt install -y ranger
