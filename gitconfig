@@ -7,3 +7,5 @@
 	a = add .
 	prune = fetch origin --prune
 	
+[core]
+	editor = vim
