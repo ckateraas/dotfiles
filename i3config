@@ -7,7 +7,7 @@ font pango:Hack Nerd Font
 exec --no-startup-id feh --randomize --bg-fill /home/christian/Pictures/Backgrounds/*
 
 # Bar
-exec --no-startup-id $HOME/.config/polybar/launch.sh
+# exec --no-startup-id yabar
 
 # use these keys for focus, movement, and resize directions when reaching for
 # the arrows is not convenient
