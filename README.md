@@ -1,74 +1,130 @@
 # Dotfiles
 
-Get up and going fast with your new machine!
+Get up and going on new machines! Sets up a desktop focused on using the
+terminal and keyboard.
+
+## Getting started
+
+This section will walk you through how to install and setup the basic version.
+
+### Dependencies
+
+First, you need to install all the dependencies.
+Some of the tools may already be installed on your new distro, but we're
+installing all of them just to be sure we're not missing any.
 
 ```bash
-apt install -y fish i3-wm feh i3lock rofi yabar ranger
-
-ln -s gitconfig ~/.gitconfig
-ln -s tmux.conf ~/.tmux.conf
-ln -s vimrc ~/.vimrc
-mkdir ~/.config/fish
-ln -s config.fish ~/.config/fish/config.fish
-
-mkdir ~/.config/yabar
-ln -s yabar.config ~/.config/yabar/yabar.fish
-
-chsh yourname -s /usr/bin/fish
+apt install -y git vim fish i3-wm feh i3lock rofi yabar ranger
 ```
 
-## Docker
+### Fetching the repo
 
-Two ways of installing Docker.
+Then close this repo to get all the config files.
 
-- Follow instructions on Docker's install page: https://docs.docker.com/install/linux/docker-ce/debian/#set-up-the-repository
-- Get `.deb` from https://download.docker.com/linux/ubuntu/dists/artful/pool/stable/amd64/
-  and use `dpkg` to install it.
-
-```
-$ curl https://download.docker.com/linux/ubuntu/dists/artful/pool/stable/amd64/docker-ce_18.03.1~ce-0~ubuntu_amd64.deb -O docker.deb
-$ dpkg -i docker.deb
+```bash
+cd ~; mkdir git; cd git; git clone git@github.com:ckateraas/dotfiles.git
 ```
 
-## Docker Compose
+### Installing the config files
+
+After the repo has been cloned into `~/git/dotfiles`, you can run `setup.sh`.
+
+```bash
+cd ~/git/Dotfiles
+./setup.sh
+```
+
+## Optional extras
+
+If you want more than what the basic setup gives you, here are some nice extras.
+
+### Snap
+
+If your distro doesn't have `snapd` installed, you can install it with `apt`.
+
+```bash
+apt install -y snapd
+echo "export PATH=$PATH:/snap/bin" >> /etc/bash.bashrc
+```
+
+This also adds `/snap/bin` to `$PATH` so you can execute the programs you install with `snap`.
+
+### Docker
+
+Use `snap` to easily get Docker on your machine. If you don't want to use
+`snap`, you can also add Docker's own PPA or install it as a  `.deb`.
+
+```bash
+snap install docker
+```
+
+### Docker Compose
 
 A nice addition to Docker is Docker Compose. Install with the following:
 
 ```bash
-sudo curl -L https://github.com/docker/compose/releases/download/1.21.0/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
+sudo curl -L https://github.com/docker/compose/releases/download/{version}/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
 ```
 
-## NodeJS and NPM
+Replace `{version}` with the latest and greatest version you want.
 
-Download the `.deb` file from NodeJS' website and install by extracting the File
-into `/usr/local`.
+### Node & NPM
 
-```sh
-$ curl https://nodejs.org/dist/latest/node-v10.5.0-linux-x64.tar.gz -O node.tar.gz
-$ tar -xf node.tar.gz --strip-components=1 -C /usr/local
-```
-
-## Atom IDE
-
-1.  Get `.deb` from https://atom.io/
-2.  Get needed `.so` for atom with `apt install libgconf-2-4`
-3.  `dpkg -i atom.deb`
-
-A few nice packages to make Atom even nicer to use.
+Install `node` with `snap` like this:
 
 ```bash
-apm install Zen  atom-clock  atom-import-js  atom-jest-snippets  autocomplete-modules  busy-signal  dracula-syntax  file-icons  git-blame  git-time-machine  intentions  linter  linter-ui-default multi-cursor  nord-atom-syntax  nord-atom-ui  pigments  prettier-atom  react  zentabs
+snap install node --channel=10/stable --classic
 ```
 
-## Hack font
+This will install version 10 on your machine.
+Visit [Snapcraft](http://snapcraft.io/node) to see which versions/channels are
+available.
 
-1.  Get font from Nerd Fonts repo: https://github.com/ryanoasis/nerd-fonts/releases
-2.  Unzip into `/usr/share/fonts/truetype/`.
-3.  Run `fc-cache -fv` to register new font. Check output for something similar to `Hack Nerd Font: 4 fonts`.
-4.  Run `fc-match "Hack Nerd Font"` to see if new font has been registered correctly.
-5.  To debug, run `fc-list | grep Hack` to see what name the font is registered with.
-6.  To see which characters are in the fonts, use `gucharmap`.
+### Atom IDE
+
+Install `atom` with `snap` like this:
+
+```bash
+snap install atom --classic
+```
+
+This will install the latest version of Atom on your machine.
+Visit [Snapcraft](http://snapcraft.io/atom) to see which versions/channels are
+available.
+
+```bash
+apm install Zen atom-clock atom-import-js atom-jest-snippets autocomplete-modules busy-signal dracula-syntax file-icons git-blame git-time-machine intentions linter linter-ui-default multi-cursor nord-atom-syntax nord-atom-ui pigments prettier-atom react zentabs
+```
+
+## Custom fonts
+
+[Nerd Fonts](https://github.com/ryanoasis/nerd-fonts/releases) has several fonts which have all
+been patched with extra glyphs and icons. These fonts will allow you to add more icons to your
+programs, such as the HUD for `tmux` or the different panels for `yabar`.
+
+### Installing a font
+There are good instructions for how you can install a font from Nerd Fonts in their own repo.
+Below is one of the ways you can do it, taken from their own guides and install script.
+
+You first have to download a zip archive of the font you want to `~/Downloads/font.zip`.
+
+```bash
+mkdir /usr/local/share/fonts/NerdFonts
+cd /usr/local/share/fonts/NerdFonts
+unzip ~/Downloads/font.zip .
+fc-cache -fv .
+```
+
+To verify that the font you chose was installed, you can run `fc-match "{font}"`. If the font is
+listed, then the new font is available for your system. This will also show you the name of the
+different types of your font, which you will need when you want your terminal, IDE, or other
+program to use the new font.
+
+### Exploring a font
+
+As a hint, if you want to see the details of the font you installed, use a program like
+`gucharmap` to browse all available glyphs, characters, and icons in the font.
 
 ## Nifty programs
 
