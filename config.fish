@@ -12,7 +12,7 @@ set VISUAL vim
 set EDITOR "$VISUAL"
 set fish_user_paths $PATH $HOME/.cargo/bin /opt/node-8.9/bin
 
-if status is-interactive 
+if status is-interactive
 and not set -q TMUX
     exec tmux
 end
