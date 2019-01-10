@@ -17,6 +17,15 @@ docker run -v ${PWD}:/builder st-builder
 
 You should then find the compiled binary `st` in the root of the repo.
 
+### Configuration
+
+`st` is configured by `config.h` when it is built. There is a `config.h` file in this directory, which you can
+use when building `st`. Simply copy it into `st/` to replace the repo's `config.h`.
+
+```sh
+cp ../config.h .
+```
+
 ## Installing st
 
 Since we built `st` using Docker, we have to do a few manual steps to finish the
