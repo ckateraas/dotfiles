@@ -1,6 +1,6 @@
 # Setting up Simple Terminal (st)
 
-Building and using Luke Smith's fork of st.
+Building and using [Luke Smith's fork of st](https://github.com/LukeSmithxyz/st).
 
 ## Building st
 
