@@ -4,12 +4,14 @@ Building and using [Luke Smith's fork of st](https://github.com/LukeSmithxyz/st)
 
 ## Building st
 
-Fetch the sources for `st` from https://github.com/lukesmithxyz/st.
+Fetch the sources for `st` from https://github.com/lukesmithxyz/st, then copy the
+`Dockerfile`, from this repo, into the `st` repo.
 
 ```bash
-cp Dockerfile ../st
-cd ../st
-docker build -t st-builder .
+git clone https://github.com/LukeSmithxyz/st
+cp Dockerfile st
+cd st
+docker build -t st-build .
 docker run -v ${PWD}:/builder st-builder
 ```
 
@@ -20,9 +22,10 @@ You should then find the compiled binary `st` in the root of the repo.
 Since we built `st` using Docker, we have to do a few manual steps to finish the
 installation of `st`.
 
-### Copy to /usr/local/bin
+### Add binary to your path
 
-We have to move the build `st` binary to `/usr/local/bin`, which is what the
+We have to move the build `st` binary to `/usr/local/bin`.
+This is to add `st` on your `$PATH`, which is also what the
 `makefile` in the `st` repo does.
 
 ```bash
@@ -33,7 +36,7 @@ chmod 755 /usr/local/bin/st
 
 ### Add manpage entry
 
-We also manually have to add an entry for `st` to our local manpage.
+We also manually have to add an entry for `st` to your local manpage.
 
 ```bash
 mkdir -p /usr/local/share/man/man1
