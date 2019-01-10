@@ -55,12 +55,13 @@ cp st /usr/local/share/man/man1/st.1
 ### Create .desktop entry
 
 Add the `st.desktop` file to `/usr/share/applications` to add it many
-application launchers.
+application launchers. This will allow you to use launchers, such as `rofi` or `dmenu`,
+to start `st`.
 
 You can also add it to `~/.local/share/applications`, to avoid using `sudo`.
 
 ```bash
-sudo cp ./st.desktop /usr/share/applications
+sudo cp ../st.desktop /usr/share/applications
 ```
 
 ## Errors
