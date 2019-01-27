@@ -1,5 +1,9 @@
 set $mod Mod4
 
+gaps inner 5
+gaps outer 5
+smart_gaps on
+
 # Use Hack font for i3
 font pango:Hack Nerd Font
 
@@ -7,7 +11,7 @@ font pango:Hack Nerd Font
 exec --no-startup-id feh --randomize --bg-fill /home/christian/Pictures/Backgrounds/*
 
 # Bar
-# exec --no-startup-id yabar
+exec --no-startup-id yabar
 
 # use these keys for focus, movement, and resize directions when reaching for
 # the arrows is not convenient
@@ -20,12 +24,12 @@ set $right semicolon
 floating_modifier $mod
 
 # Start a terminal
-bindsym $mod+Return exec gnome-terminal
+bindsym $mod+Return exec /usr/local/bin/st
 
 # Kill focused window
 bindsym $mod+Shift+q kill
 
-# Start rofi
+# Bind rofi
 bindsym $mod+d exec rofi -show drun -theme Pop-Dark -display-drun "Run > "
 
 # Changing focus
@@ -123,12 +127,12 @@ mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
 
         # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
         bindsym $left       resize shrink width 10 px or 10 ppt
+        # Pressing down will grow the window’s height.
         bindsym $down       resize grow height 10 px or 10 ppt
+        # Pressing up will shrink the window’s height.
         bindsym $up         resize shrink height 10 px or 10 ppt
+        # Pressing right will grow the window’s width.
         bindsym $right      resize grow width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
@@ -145,7 +149,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # No borders
-for_window [class="^.*"] border pixel 1
+for_window [class="^.*"] border pixel 0
 
 # Brightness
 bindsym XF86MonBrightnessDown exec sudo brightness - 100
