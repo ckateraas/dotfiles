@@ -5,6 +5,9 @@ IMAGE_NAME="st-builder"
 echo "Fetching Git repo for ST"
 git clone https://github.com/lukesmithxyz/st
 
+echo "Adding config.h to st"
+cp ./config.h st
+
 echo "Building Docker image for building ST"
 docker build -t $IMAGE_NAME .
 
