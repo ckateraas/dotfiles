@@ -16,7 +16,7 @@ checkinstall \
   --maintainer=hvemvet \
   --nodoc \
   --pkgname=i3 \
-  --pkgversion=1-gaps-next \
+  --pkgversion=5.0.0-next \
   --default \
   --pakdir=./dist \
   --instal=no \
