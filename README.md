@@ -143,4 +143,3 @@ As a hint, if you want to see the details of the font you installed, use a progr
 - VLC via `snap install vlc`
 - `jq` via `snap install jq`
 - YubiKey via [their downloads page](https://www.yubico.com/products/services-software/download/)
-- `fzf` by installing it from [their Github repo](https://github.com/junegunn/fzf.git)
