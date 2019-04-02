@@ -9,13 +9,15 @@ This section will walk you through how to install and setup the basic version.
 
 ### Required dependencies
 
-First, you need to install all the dependencies. Run the following snippet as root.
+First, you need to install all the dependencies.
 Some of the tools may already be installed on your new distro, but we're
 installing all of them just to be sure we're not missing any.
 
 ```bash
-apt install -y git vim fish i3-wm feh i3lock rofi yabar ranger
+apt install -y git vim fish i3-wm feh i3lock rofi yabar scrot pavucontrol
 ```
+
+This can also be installed using `./install-deps-ubuntu.sh`.
 
 ### Fetching the repo
 
