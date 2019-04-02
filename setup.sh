@@ -10,3 +10,6 @@ mkdir ~/.config/yabar
 ln -s ${pwd}/yabar.config ~/.config/yabar/yabar.fish
 
 chsh ${whoami} -s /usr/bin/fish
+
+mkdir ~/bin
+cp ./bin/* ~/bin
