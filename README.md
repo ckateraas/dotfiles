@@ -71,7 +71,7 @@ sudo curl -L https://github.com/docker/compose/releases/download/{version}/docke
 sudo chmod +x /usr/local/bin/docker-compose
 ```
 
-Replace `{version}` with the latest and greatest version you want.
+Replace `{version}` with the latest and greatest version you want. Check out [available release on their Github page](https://github.com/docker/compose/releases/)
 
 ### Node & NPM
 
