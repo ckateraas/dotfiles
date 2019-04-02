@@ -14,4 +14,4 @@ mkdir -p dist
 docker run --rm -v $(pwd):/build $IMAGE_NAME
 
 echo "Installing .deb for Yabar"
-sudo apt install ./dist/yabar_1.0.0-1_amd64.deb
+sudo apt install ./dist/yabar_1.0.1-1_amd64.deb
