@@ -32,15 +32,14 @@ mkdir ~/git; cd ~/git; git clone git@github.com:ckateraas/dotfiles.git
 After the repo has been cloned into `~/git/dotfiles`, you can run `setup.sh`.
 
 ```bash
-cd ~/git/dotfiles
-./setup.sh
+~/git/dotfiles/setup.sh
 ```
 
 Then you have completed the setup for the dotfiles!
 
 ## Installation of programs
 
-Here's a list of what programs I like to use and how to install them.
+Here's a list of what programs I use frequently and how to install them.
 
 ### Snap
 
