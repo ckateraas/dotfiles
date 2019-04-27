@@ -5,6 +5,11 @@ IMAGE_NAME="yabar-builder"
 echo "Fetching Git repo for Yabar"
 git clone https://github.com/geommer/yabar
 
+echo "Pulling latest changes"
+cd yabar
+git pull
+cd -
+
 echo "Building Docker image for building Yabar"
 docker build -t $IMAGE_NAME .
 
