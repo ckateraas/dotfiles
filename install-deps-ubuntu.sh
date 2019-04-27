@@ -9,4 +9,5 @@ apt install -y \
   rofi\ # D-menu replacement
   yabar\ # Meny bar
   scrot\ # Take screenshots
-  pavucontrol # GUI for alsamixer
+  pavucontrol\ # GUI for alsamixer
+  dunst
