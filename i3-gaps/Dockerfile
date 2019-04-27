@@ -11,5 +11,5 @@ RUN apt-get install -y libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev \
   git checkinstall
 
 WORKDIR /build
-COPY ./build.sh /wot/build.sh
-CMD /wot/build.sh
+COPY ./docker-cmd.sh /scripts/docker-cmd.sh
+CMD /scripts/docker-cmd.sh
