@@ -2,9 +2,9 @@
 
 autoreconf --force --install
 
-mkdir -p build
+mkdir -p build/dist
+
 cd build/
-mkdir -p dist
 
 ../configure --prefix=/usr --sysconfdir=/etc --disable-sanitizers
 make

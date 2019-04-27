@@ -9,7 +9,7 @@ checkinstall \
   --maintainer=hvemvet \
   --nodoc \
   --pkgname=st \
-  --pkgversion=1.0.0 \
+  --pkgversion=1.0.1 \
   --default \
   --pakdir=./dist \
   --instal=no \
