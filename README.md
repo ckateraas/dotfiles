@@ -143,3 +143,4 @@ If you want to see the details of the font you installed, use a program like
 - VLC via `snap install vlc`
 - `jq` via `snap install jq`
 - YubiKey via [their downloads page](https://www.yubico.com/products/services-software/download/)
+- ElectronPlayer via `snap install electronplayer`
