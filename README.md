@@ -7,29 +7,29 @@ Sets up a keyboard focused desktop environment.
 
 This section will walk you through how to install and setup the basic version.
 
-### Required dependencies
-
-First, you need to install all the dependencies.
-Some of the tools may already be installed on your new distro, but we're
-installing all of them just to be sure we're not missing any.
-
-```bash
-apt install -y git vim fish i3-wm feh i3lock rofi yabar scrot pavucontrol
-```
-
-This can also be installed using `./install-deps-ubuntu.sh`.
-
 ### Fetching the repo
 
-Once all dependencies are installed, then clone this repo to get all the config files.
+Clone this repo to get all the config files and helper scripts.
 
 ```bash
-mkdir ~/git; cd ~/git; git clone git@github.com:ckateraas/dotfiles.git
+mkdir ~/git; cd ~/git
+git clone git@github.com:ckateraas/dotfiles.git
+```
+
+### Required dependencies
+
+To install all the dependencies you can run `./install-deps-ubuntu.sh`. This will install all the
+needed packages for this setup.
+Some of the packages may already be installed on your new distro, but we're
+installing all of them, just to be sure we're not missing any.
+
+```
+./install-deps-ubuntu.sh
 ```
 
 ### Linking the config files
 
-After the repo has been cloned into `~/git/dotfiles`, you can run `setup.sh`.
+Now, once the needed packages are installed, you can run `setup.sh`.
 
 ```bash
 ~/git/dotfiles/setup.sh
@@ -37,9 +37,9 @@ After the repo has been cloned into `~/git/dotfiles`, you can run `setup.sh`.
 
 Then you have completed the setup for the dotfiles!
 
-## Installation of programs
+## Optional packages
 
-Here's a list of what programs I use frequently and how to install them.
+Here's a list of useful, optional packages.
 
 ### Snap
 
@@ -71,7 +71,7 @@ sudo curl -L https://github.com/docker/compose/releases/download/{version}/docke
 sudo chmod +x /usr/local/bin/docker-compose
 ```
 
-Replace `{version}` with the latest and greatest version you want. Check out [available release on their Github page](https://github.com/docker/compose/releases/)
+Replace `{version}` with the latest and greatest version you want. Check out [available release on their Github page](https://github.com/docker/compose/releases/) for all available versions.
 
 ### Node & NPM
 
@@ -131,7 +131,7 @@ program to use the new font.
 
 ### Exploring a font
 
-As a hint, if you want to see the details of the font you installed, use a program like
+If you want to see the details of the font you installed, use a program like
 `gucharmap` to browse all available glyphs, characters, and icons in the font.
 
 ## Other nifty programs
