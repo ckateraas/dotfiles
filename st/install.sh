@@ -10,6 +10,9 @@ cd st
 git pull
 cd -
 
+echo "Clearing out old builds"
+rm st/dist/*.deb
+
 echo "Overiding config.h in st/"
 cp ./config.h st
 

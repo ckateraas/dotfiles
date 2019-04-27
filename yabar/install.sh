@@ -10,6 +10,9 @@ cd yabar
 git pull
 cd -
 
+echo "Clearing out old builds"
+rm yabar/dist/*.deb
+
 echo "Building Docker image for building Yabar"
 docker build -t $IMAGE_NAME .
 

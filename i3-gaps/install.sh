@@ -10,6 +10,9 @@ cd i3-gaps
 git pull
 cd -
 
+echo "Clearing out old builds"
+rm i3-gaps/build/dist/*.deb
+
 echo "Building Docker image for building i3-gaps"
 docker build -t $IMAGE_NAME .
 
