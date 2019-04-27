@@ -1,6 +1,6 @@
 #! /usr/bin/env bash
 
-EMOJI=$(grep -v "#" ~/git/dotfiles/bin/emoji.txt | rofi -dmenu -lines 10 -p "Emoji" | awk '{ print $1}')
+EMOJI=$(grep -v "#" ~/git/dotfiles/bin/emoji.txt | rofi -dmenu -lines 10 -p "Emoji" -matching fuzzy | awk '{ print $1 }')
 if [[ $EMOJI == "" ]]; then
   exit 0
 fi
