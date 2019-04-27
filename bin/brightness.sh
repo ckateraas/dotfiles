@@ -1,27 +1,27 @@
 #! /usr/bin/env bash
-function main() {
-    local file_root='/sys/class/backlight/intel_backlight/'
-    local file_brightness="$file_root/brightness"
-    local file_max="$file_root/max_brightness"
-    local cur=$(cat "$file_brightness")
-    local max=$(cat "$file_max")
+function change_brightness() {
+    local backlight_dir='/sys/class/backlight/intel_backlight/'
+    local brightness_file="$backlight_dir/brightness"
+    local current_brightness=$(cat "$brightness_file")
+    local max_brightness=$(cat "$backlight_dir/max_brightness")
 
-    if [ ! -w "$file_brightness" ]; then
-        logger "Can't set the new brightness, try with sudo or as root."
-        exit 2
-    fi
+    new_brightness=$(($current_brightness $1 $2))
+    new_brightness=$(($new_brightness > $max_brightness ? $max_brightness : $new_brightness))
+    new_brightness=$(($new_brightness < 0 ? 0 : $new_brightness))
 
-    new=$(($cur $1 $2))
-    new=$(($new>$max?$max:$new))
-    new=$(($new<0?0:$new))
-    echo $new > "$file_brightness"
-    echo "New brightness: $new/$max."
+    echo $new_brightness > "$brightness_file"
+    echo "New brightness: $new_brightness/$max_brightness."
 }
 
-logger "RUNNING AS $(whoami)"
 if [[ -z "$1" || -z "$2" ]]; then
-    logger "Usage: brightness <-|+> <delta>"
+    echo "Usage: brightness <-|+> <delta>"
     exit 1
 fi
 
-main $1 $2
+if [[ $EUID -ne 0 ]]; then
+   echo "This script must be run as root"
+   exit 1
+fi
+
+
+change_brightness $1 $2
