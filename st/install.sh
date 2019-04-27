@@ -25,4 +25,4 @@ mkdir -p dist
 docker run --rm -v $(pwd):/build $IMAGE_NAME
 
 echo "Installing .deb packages for st"
-sudo apt install ./dist/st_1.0.0-1_amd64.deb
+sudo apt install ./dist/*.deb

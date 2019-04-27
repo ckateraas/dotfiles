@@ -21,4 +21,4 @@ cd i3-gaps
 docker run --rm -v $(pwd):/build $IMAGE_NAME
 
 echo "Installing .deb packages for i3-gaps"
-sudo apt install ./build/dist/i3_1-gaps-next-1_amd64.deb
+sudo apt install ./build/dist/*.deb
