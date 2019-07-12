@@ -15,8 +15,8 @@ checkinstall \
   --type=debian \
   --maintainer=hvemvet \
   --nodoc \
-  --pkgname=i3 \
-  --pkgversion=5.0.1-next \
+  --pkgname=i3-wm \
+  --pkgversion=$1 \
   --default \
   --pakdir=./dist \
   --instal=no \
