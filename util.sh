@@ -1,6 +1,8 @@
 #! /usr/bin/env bash
 
-function git-fetch() {
+set -e
+
+function git-clone() {
   echo "Fetching Git repo $1"
   git clone "$1"
 }
