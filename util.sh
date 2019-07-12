@@ -21,7 +21,7 @@ function  git-pull() {
 function clean-build-dir() {
   if [[ -d "$1" ]]; then
     echo "Clearing out old builds in $1"
-    rm "$1"/*.deb
+    sudo rm -f "$1"/*.deb
   else
     echo "Making directory, $1, for binaries"
     mkdir -p "$1"
