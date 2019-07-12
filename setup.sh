@@ -1,15 +1,15 @@
 #! /usr/bin/env bash
 
-ln -s ${pwd}/gitconfig ~/.gitconfig
-ln -s ${pwd}/tmux.conf ~/.tmux.conf
-ln -s ${pwd}/vimrc ~/.vimrc
-mkdir ~/.config/fish
-ln -s ${pwd}/config.fish ~/.config/fish/config.fish
+ln -sf "$(pwd)"/gitconfig ~/.gitconfig
+ln -sf "$(pwd)"/tmux.conf ~/.tmux.conf
+ln -sf "$(pwd)"/vimrc ~/.vimrc
+mkdir -p ~/.config/fish
+ln -sf "$(pwd)"/config.fish ~/.config/fish/config.fish
 
-mkdir ~/.config/yabar
-ln -s ${pwd}/yabar.config ~/.config/yabar/yabar.fish
+mkdir -p ~/.config/yabar
+ln -sf "$(pwd)"/yabar.config ~/.config/yabar/yabar.fish
 
-chsh ${whoami} -s /usr/bin/fish
+chsh "$(whoami)" -s /usr/bin/fish
 
-mkdir ~/bin
+mkdir -p ~/bin
 cp ./bin/* ~/bin
