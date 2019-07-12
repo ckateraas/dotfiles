@@ -35,7 +35,7 @@ function build-docker-image() {
 
 function build-package() {
   echo "Building $2"
-  docker run --rm -v "$2":/build "$1" <(cat ./version)
+  docker run --rm -v "$(pwd)"/"$2":/build "$1" build "$(cat ./version)"
 }
 
 function bump-package-version() {
