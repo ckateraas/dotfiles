@@ -1,7 +1,7 @@
 # Dotfiles
 
 Setup for how I like to use Ubuntu. Made to help you quickly configure and get started with new machines.
-Sets up a keyboard focused desktop environment.
+Sets up a keyboard focused desktop environment using Snap and Docker.
 
 ## Installation of dotfiles
 
@@ -16,7 +16,7 @@ mkdir ~/git; cd ~/git
 git clone git@github.com:ckateraas/dotfiles.git
 ```
 
-### Required dependencies
+### Base install
 
 To install all the dependencies you can run `./install-deps-ubuntu.sh`. This will install all the
 needed packages for this setup.
@@ -37,30 +37,17 @@ Now, once the needed packages are installed, you can run `setup.sh`.
 
 Then you have completed the setup for the dotfiles!
 
+## Installing non-PPA software
+
+If you have run `./install-deps-ubuntu.sh`, you should have Docker installed locally. Using Docker, we can build and install software not in the default PPAs or a newer version than what's in the PPA.
+
+For `fzf`, `i3-gaps`, `st`, and `yabar`, you can `cd` into the directory and run `./install.sh`.
+
+This will build a Docker image with the dependencies needed, build a `.deb` file, copy it from the Docker container and install it on your host system.
+
 ## Optional packages
 
 Here's a list of useful, optional packages.
-
-### Snap
-
-If your distro doesn't already have `snapd` installed, you can probably install it with your distro's package manager,
-such as `apt`.
-
-```bash
-apt install -y snapd
-echo "export PATH=$PATH:/snap/bin" >> /etc/bash.bashrc
-```
-
-The last line adds `/snap/bin` to `$PATH`, so you can execute the programs you install with `snap`.
-
-### Docker
-
-Use `snap` to easily get Docker on your machine. If you don't want to use
-`snap`, you can also add Docker's own PPA or install it as a  `.deb` from their website.
-
-```bash
-snap install docker
-```
 
 ### Docker Compose
 
@@ -84,21 +71,9 @@ snap install node --channel=10/stable --classic
 This will install version 10 on your machine.
 Visit [Snapcraft](http://snapcraft.io/node) to see which versions/channels are available.
 
-### Atom IDE
+### Atom plugins
 
-Install `atom` with `snap` like this:
-
-```bash
-snap install atom --classic
-```
-
-This will install the latest version of Atom on your machine.
-Visit [Snapcraft](http://snapcraft.io/atom) to see which versions/channels are
-available.
-
-#### Atom plugins
-
-Vanilla Atom gets even better with some nice extensions :)
+Vanilla Atom, which is installed with `./setup.sh`, gets even better with some nice extensions.
 
 ```bash
 apm install Zen atom-clock atom-import-js atom-jest-snippets autocomplete-modules busy-signal dracula-syntax file-icons git-blame git-time-machine intentions linter linter-ui-default multi-cursor nord-atom-syntax nord-atom-ui pigments prettier-atom react zentabs
@@ -138,9 +113,7 @@ If you want to see the details of the font you installed, use a program like
 
 - [Arduino IDE](https://www.arduino.cc/en/guide/linux)
 - [pCloud](https://blog.pcloud.com/pcloud-drive-for-linux/)
-- Signal Desktop client via `apt install -y signal-desktop`
 - Mail Spring Email client via `snap install mailspring`
 - VLC via `snap install vlc`
-- `jq` via `snap install jq`
 - YubiKey via [their downloads page](https://www.yubico.com/products/services-software/download/)
 - ElectronPlayer via `snap install electronplayer`

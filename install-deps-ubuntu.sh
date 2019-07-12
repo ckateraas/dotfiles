@@ -1,13 +1,21 @@
 #! /usr/bin/env bash
 
+set -ex
+
 apt install -y \
-  git\
-  vim\
-  fish\ # https://fishshell.com/
-  feh\ # Sets desktop backgrounds
-  i3lock\ # Lockscreen for i3
-  rofi\ # D-menu replacement
-  yabar\ # Meny bar
-  scrot\ # Take screenshots
-  pavucontrol\ # GUI for alsamixer
-  dunst
+  git \
+  vim \
+  fish \
+  feh \
+  i3lock \
+  rofi \
+  scrot \
+  pavucontrol \
+  dunst \
+  signal-desktop \
+  snapd
+
+echo "export PATH=$PATH:/snap/bin" >> /etc/bash.bashrc
+
+snap install docker
+snap install jq
