@@ -53,6 +53,6 @@ function bump-package-version() {
 }
 
 function install-package() {
-  echo "Installing .deb packages"
+  echo "Installing .deb packages in $1"
   sudo apt install "$1"
 }
