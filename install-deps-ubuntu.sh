@@ -1,11 +1,29 @@
 #! /usr/bin/env bash
 
-set -ex
+set -e
+
+apt install -y snapd git vim
+
+echo "export PATH=$PATH:/snap/bin" >> /etc/bash.bashrc
+
+snap install docker
+
+cd fish
+./install.sh
+
+cd fzf
+./install.sh
+
+cd i3-gaps
+./install.sh
+
+cd st
+./install.sh
+
+cd yabar
+./install.sh
 
 apt install -y \
-  git \
-  vim \
-  fish \
   feh \
   i3lock \
   rofi \
@@ -13,9 +31,5 @@ apt install -y \
   pavucontrol \
   dunst \
   signal-desktop \
-  snapd
 
-echo "export PATH=$PATH:/snap/bin" >> /etc/bash.bashrc
-
-snap install docker
 snap install jq
