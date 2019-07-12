@@ -10,7 +10,7 @@ checkinstall \
   --maintainer=hvemvet \
   --nodoc \
   --pkgname=yabar \
-  --pkgversion=1.0.2 \
+  --pkgversion=$1 \
   --default \
   --pakdir=./dist \
   --instal=no \

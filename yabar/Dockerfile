@@ -10,5 +10,4 @@ RUN apt-get install -y libcairo2-dev libpango1.0-dev libconfig-dev \
     git checkinstall asciidoc docbook-xml xsltproc
 
 WORKDIR /build
-COPY ./docker-cmd.sh /scripts/docker-cmd.sh
-CMD /scripts/docker-cmd.sh
+COPY ./docker-cmd.sh /bin/build
