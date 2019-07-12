@@ -4,7 +4,11 @@ set -e
 
 function git-clone() {
   echo "Fetching Git repo $1"
-  git clone "$1"
+  if [[ ! -d "$2" ]]; then
+    git clone -q "$1" "$2"
+  else
+    echo "Skipping since $2 already exists"
+  fi
 }
 
 function  git-pull() {
