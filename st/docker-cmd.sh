@@ -1,5 +1,7 @@
 #! /usr/bin/env bash
 
+set -e
+
 make
 
 echo 'suckless terminal' > description-pak
@@ -9,7 +11,7 @@ checkinstall \
   --maintainer=hvemvet \
   --nodoc \
   --pkgname=st \
-  --pkgversion=1.0.2 \
+  --pkgversion="$1" \
   --default \
   --pakdir=./dist \
   --instal=no \
