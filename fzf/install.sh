@@ -1,12 +1,11 @@
 #! /usr/bin/env bash
 
+source ../util.sh
+
 echo "Fetching Git repo for fzf"
 git clone --depth 1 https://github.com/junegunn/fzf.git
 
-echo "Pulling latest changes"
-cd fzf
-git pull
-cd -
+git-pull fzf
 
 echo "Running installer for fzf"
 cd fzf

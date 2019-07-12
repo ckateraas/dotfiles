@@ -1,24 +1,13 @@
 #! /usr/bin/env bash
 
-IMAGE_NAME="i3-gaps-builder"
+PACKAGE_NAME="i3-gaps"
+IMAGE_NAME="$PACKAGE_NAME-builder"
+source ../util.sh
 
-echo "Fetching Git repo for i3-gaps"
-git clone https://github.com/Airblader/i3.git i3-gaps
-
-echo "Pulling latest changes"
-cd i3-gaps
-git pull
-cd -
-
-echo "Clearing out old builds"
-rm i3-gaps/build/dist/*.deb
-
-echo "Building Docker image for building i3-gaps"
-docker build -t $IMAGE_NAME .
-
-echo "Building i3-gaps with Docker"
-cd i3-gaps
-docker run --rm -v $(pwd):/build $IMAGE_NAME
-
-echo "Installing .deb packages for i3-gaps"
-sudo apt install ./build/dist/*.deb
+git-fetch https://github.com/Airblader/i3.git
+git-pull "$PACKAGE_NAME"
+bump-package-version "$PACKAGE_NAME"
+clean-build-dir "$PACKAGE_NAME"/build/dist
+build-docker-image $IMAGE_NAME
+build-package $IMAGE_NAME "$PACKAGE_NAME"
+install-package ./"$PACKAGE_NAME"/build/dist/*.deb

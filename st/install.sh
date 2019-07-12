@@ -1,28 +1,17 @@
 #! /usr/bin/env bash
 
-IMAGE_NAME="st-builder"
+PACKAGE_NAME="st"
+IMAGE_NAME="$PACKAGE_NAME-builder"
+source ../util.sh
 
-echo "Fetching Git repo for ST"
-git clone https://github.com/lukesmithxyz/st
+git-fetch https://github.com/lukesmithxyz/st
+git-pull "$PACKAGE_NAME"
 
-echo "Pulling latest changes"
-cd st
-git pull
-cd -
+echo "Overiding config.h in $PACKAGE_NAME/"
+cp ./config.h "$PACKAGE_NAME"
 
-echo "Clearing out old builds"
-rm st/dist/*.deb
-
-echo "Overiding config.h in st/"
-cp ./config.h st
-
-echo "Building Docker image for building ST"
-docker build -t $IMAGE_NAME .
-
-echo "Building ST with Docker"
-cd st
-mkdir -p dist
-docker run --rm -v $(pwd):/build $IMAGE_NAME
-
-echo "Installing .deb packages for st"
-sudo apt install ./dist/*.deb
+bump-package-version "$PACKAGE_NAME"
+clean-build-dir "$PACKAGE_NAME"/dist
+build-docker-image $IMAGE_NAME
+build-package $IMAGE_NAME "$PACKAGE_NAME"
+install-package ./"$PACKAGE_NAME"/dist/*.deb

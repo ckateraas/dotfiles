@@ -1,25 +1,13 @@
 #! /usr/bin/env bash
 
-IMAGE_NAME="yabar-builder"
+PACKAGE_NAME="yabar"
+IMAGE_NAME="$PACKAGE_NAME-builder"
+source ../util.sh
 
-echo "Fetching Git repo for Yabar"
-git clone https://github.com/geommer/yabar
-
-echo "Pulling latest changes"
-cd yabar
-git pull
-cd -
-
-echo "Clearing out old builds"
-rm yabar/dist/*.deb
-
-echo "Building Docker image for building Yabar"
-docker build -t $IMAGE_NAME .
-
-echo "Building Yabar with Docker"
-cd yabar
-mkdir -p dist
-docker run --rm -v $(pwd):/build $IMAGE_NAME
-
-echo "Installing .deb for Yabar"
-sudo apt install ./dist/*.deb
+git-fetch https://github.com/geommer/yabar
+git-pull "$PACKAGE_NAME"
+bump-package-version "$PACKAGE_NAME"
+clean-build-dir "$PACKAGE_NAME"/dist
+build-docker-image $IMAGE_NAME
+build-package $IMAGE_NAME "$PACKAGE_NAME"
+install-package ./"$PACKAGE_NAME"/dist/*.deb
