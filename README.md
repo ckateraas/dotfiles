@@ -18,28 +18,28 @@ git clone git@github.com:ckateraas/dotfiles.git
 
 ### Base install
 
-To install all the dependencies you can run `./install-deps-ubuntu.sh`. This will install all the
+To install all the dependencies you can run `./install-programs.sh`. This will install all the
 needed packages for this setup.
 Some of the packages may already be installed on your new distro, but we're
 installing all of them, just to be sure we're not missing any.
 
 ```
-./install-deps-ubuntu.sh
+./install-programs.sh
 ```
 
 ### Linking the config files
 
-Now, once the needed packages are installed, you can run `setup.sh`.
+Now, once the needed packages are installed, you can run `install-dotfiles.sh`.
 
 ```bash
-~/git/dotfiles/setup.sh
+~/git/dotfiles/install-dotfiles.sh
 ```
 
 Then you have completed the setup for the dotfiles!
 
 ## Installing non-PPA software
 
-If you have run `./install-deps-ubuntu.sh`, you should have Docker installed locally. Using Docker, we can build and install software not in the default PPAs or a newer version than what's in the PPA.
+If you have run `./install-programs.sh`, you should have Docker installed locally. Using Docker, we can build and install software not in the default PPAs or a newer version than what's in the PPA.
 
 For `fzf`, `i3-gaps`, `st`, and `yabar`, you can `cd` into the directory and run `./install.sh`.
 
@@ -73,7 +73,7 @@ Visit [Snapcraft](http://snapcraft.io/node) to see which versions/channels are a
 
 ### Atom plugins
 
-Vanilla Atom, which is installed with `./setup.sh`, gets even better with some nice extensions.
+Vanilla Atom, which is installed with `./install-programs.sh`, gets even better with some nice extensions.
 
 ```bash
 apm install Zen atom-clock atom-import-js atom-jest-snippets autocomplete-modules busy-signal dracula-syntax file-icons git-blame git-time-machine intentions linter linter-ui-default multi-cursor nord-atom-syntax nord-atom-ui pigments prettier-atom react zentabs
