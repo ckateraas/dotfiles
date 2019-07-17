@@ -15,10 +15,11 @@ function commits_for_branch {
   COMMAND="git --no-pager log $1 --oneline --decorate --no-merges --after $(date -d $SINCE_DATE $DATE_FORMAT) --before $(date $DATE_FORMAT)"
   LOGS=$($COMMAND)
   if [[ ! -z "$LOGS" ]]; then
+    echo "COMMITS FOR $1"
     $COMMAND
   fi
 }
 
-git branch -r | tr -d '\*' | xargs -IX bash -c "commits_for_branch X"
+git branch -r | tr -d '\*' | grep -v HEAD | xargs -IX bash -c "commits_for_branch X"
 
 set -o allexport
