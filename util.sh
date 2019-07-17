@@ -54,6 +54,13 @@ function bump-package-version() {
   local NEXT_PATCH_VERSION
   local NEW_VERSION
   VERSION=$(apt show "$1" 2>/dev/null | grep -i version | cut -d' ' -f2)
+  if [[ -z "$VERSION" || "$VERSION" == "" ]]; then
+    if [[ -f ./version ]]; then
+      VERSION=$(cat ./version)
+    else
+      VERSION="1.0.0-0"
+    fi
+  fi
   NEXT_VERSION_BODY=$(echo "$VERSION" | cut -d'-' -f1)
   NEXT_PATCH_VERSION=$(echo "$VERSION" | cut -d'-' -f2 | awk '{ print $1 + 1}')
   NEW_VERSION="$NEXT_VERSION_BODY"-"$NEXT_PATCH_VERSION"
