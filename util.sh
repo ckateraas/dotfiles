@@ -11,6 +11,15 @@ function git-clone() {
   fi
 }
 
+function git-clone-recursive() {
+  echo "Fetching Git repo $1"
+  if [[ ! -d "$2" ]]; then
+    git clone --recursive -q "$1" "$2"
+  else
+    echo "Skipping since $2 already exists"
+  fi
+}
+
 function  git-pull() {
   cd "$1" || exit
   echo "Pulling latest changes in $1"
