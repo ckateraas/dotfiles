@@ -16,40 +16,17 @@ mkdir ~/git; cd ~/git
 git clone git@github.com:ckateraas/dotfiles.git
 ```
 
-### Base install
-
-To install all the dependencies you can run `./install-programs.sh`. This will install all the
-needed packages for this setup.
-Some of the packages may already be installed on your new distro, but we're
-installing all of them, just to be sure we're not missing any.
-
-```
-./install-programs.sh
-```
-
 ### Linking the config files
 
-Now, once the needed packages are installed, you can run `install-dotfiles.sh`.
+Now, once the needed packages are installed, you can run `install.sh`.
 
 ```bash
-~/git/dotfiles/install-dotfiles.sh
+~/git/dotfiles/install.sh
 ```
 
 Then you have completed the setup for the dotfiles!
 
-## Installing non-PPA software
-
-If you have run `./install-programs.sh`, you should have Docker installed locally. Using Docker, we can build and install software not in the default PPAs or a newer version than what's in the PPA.
-
-For `fzf`, `i3-gaps`, `st`, and `yabar`, you can `cd` into the directory and run `./install.sh`.
-
-This will build a Docker image with the dependencies needed, build a `.deb` file, copy it from the Docker container and install it on your host system.
-
-## Optional packages
-
-Here's a list of useful, optional packages.
-
-### Docker Compose
+## Docker Compose
 
 A nice addition to Docker is Docker Compose. Install with the following:
 
@@ -59,25 +36,6 @@ sudo chmod +x /usr/local/bin/docker-compose
 ```
 
 Replace `{version}` with the latest and greatest version you want. Check out [available release on their Github page](https://github.com/docker/compose/releases/) for all available versions.
-
-### Node & NPM
-
-Install `node` with `snap` like this:
-
-```bash
-snap install node --channel=10/stable --classic
-```
-
-This will install version 10 on your machine.
-Visit [Snapcraft](http://snapcraft.io/node) to see which versions/channels are available.
-
-### Atom plugins
-
-Vanilla Atom, which is installed with `./install-programs.sh`, gets even better with some nice extensions.
-
-```bash
-apm install Zen atom-clock atom-import-js atom-jest-snippets autocomplete-modules busy-signal dracula-syntax file-icons git-blame git-time-machine intentions linter linter-ui-default multi-cursor nord-atom-syntax nord-atom-ui pigments prettier-atom react zentabs
-```
 
 ## Custom fonts
 

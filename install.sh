@@ -1,5 +1,20 @@
 #! /usr/bin/env bash
 
+apt install -y \
+  feh \
+  i3lock \
+  rofi \
+  scrot \
+  pavucontrol \
+  dunst \
+  signal-desktop \
+  snapd \
+  git \
+  vim \
+  snapd
+
+mkdir -p ~/.config
+
 ln -sf ./configs/gitconfig ~/.gitconfig
 ln -sf ./configs/tmux.conf ~/.tmux.conf
 ln -sf ./configs/vimrc ~/.vimrc
@@ -20,3 +35,8 @@ chsh "$(whoami)" -s /usr/bin/fish
 
 mkdir -p ~/bin
 cp  ./bin/* ~/bin
+
+snap install jq
+snap install procs
+snap install atom
+snap install docker
