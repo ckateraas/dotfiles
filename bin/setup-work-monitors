@@ -1,4 +1,38 @@
 #! /usr/bin/env bash
 
-xrandr --output eDP-1 --off
-xrandr --output DP-2 --mode "2560x1440" --rate 60
+MONITORS=()
+while IFS=$'\n' read -r line; do
+    MONITORS+=( "$line" )
+done < <( polybar --list-monitors | cut -d':' -f1 )
+
+if [[ ${#MONITORS[@]} -le 1 ]]; then
+    echo "One or less monitors connected. Aborting"
+    exit 0
+fi
+
+echo "Select which monitor to use:"
+
+COUNTER=0
+for MONITOR in "${MONITORS[@]}"; do
+    echo "$COUNTER: $MONITOR"
+    COUNTER=$[$COUNTER + 1]
+done
+
+read -r -n 1
+
+echo
+SELECTED_MONITOR="${MONITORS[$REPLY]}"
+echo "Selected: $REPLY: $SELECTED_MONITOR"
+echo "Disabling other monitors..."
+COUNTER=0
+for MONITOR in "${MONITORS[@]}"; do
+	if [[ "$SELECTED_MONITOR" != "$MONITOR" ]]; then
+		xrandr --output "$MONITOR" --off
+	fi
+    COUNTER=$[$COUNTER + 1]
+done
+
+echo "Enabling selected monitor..."
+xrandr --output "${MONITORS[$REPLY]}" --mode "2560x1440" --rate 60
+
+echo "Done!"
