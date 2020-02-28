@@ -10,7 +10,8 @@ apt install -y \
   snapd \
   git \
   vim \
-  snapd
+  snapd \
+  tmux
 
 mkdir -p ~/.config
 
