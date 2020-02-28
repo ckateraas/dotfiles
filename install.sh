@@ -7,7 +7,6 @@ apt install -y \
   scrot \
   pavucontrol \
   dunst \
-  signal-desktop \
   snapd \
   git \
   vim \
