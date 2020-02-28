@@ -18,7 +18,7 @@ for MONITOR in "${MONITORS[@]}"; do
     COUNTER=$[$COUNTER + 1]
 done
 
-read -r -n 1
+read -s -r -n 1
 
 echo
 SELECTED_MONITOR="${MONITORS[$REPLY]}"

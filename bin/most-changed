@@ -1,0 +1,14 @@
+#! /usr/bin/env bash
+
+git ls-files |
+while read file
+do
+  printf . >&2
+  set $(git log --follow --oneline "$file" | wc)
+  printf '%s\t%s\n' $1 "$file"
+done > ~/git-results.txt
+
+sort -nr ~/git-results.txt
+
+echo
+echo "Done! Read results in ~/git-results.txt"

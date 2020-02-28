@@ -1,0 +1,12 @@
+#! /usr/bin/env bash
+echo "Fetching running instances..."
+
+INSTANCES=$(gcloud compute instances list --format="table(NAME,EXTERNAL_IP)" --filter="STATUS='RUNNING'" | tail -n +2)
+SELECTED_INSTANCE=$(echo "$INSTANCES" | fzf)
+
+if [[ -z "$SELECTED_INSTANCE" ]]; then
+    echo "No instance selected. Bye"
+    exit 1
+fi
+echo "SSH into $SELECTED_INSTANCE"
+ssh -i ~/.ssh/github ckateraas@$(echo "$SELECTED_INSTANCE" | awk '{ print $2 }')

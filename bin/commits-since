@@ -1,8 +1,9 @@
 #! /usr/bin/env bash
 set -o allexport
+set -e
 
 # Set default value for SINCE_DATE
-ARGS="$@"
+ARGS="$1"
 SINCE_DATE=${ARGS:-"yesterday"}
 
 DATE_FORMAT="+%d%b"
@@ -11,7 +12,7 @@ echo "All commits between"
 figlet "$SINCE_DATE & today"
 echo
 
-function commits_for_branch {
+function commits_for_branch() {
   COMMAND="git --no-pager log $1 --oneline --decorate --no-merges --after $(date -d $SINCE_DATE $DATE_FORMAT) --before $(date $DATE_FORMAT)"
   LOGS=$($COMMAND)
   if [[ ! -z "$LOGS" ]]; then
@@ -21,5 +22,3 @@ function commits_for_branch {
 }
 
 git branch -r | tr -d '\*' | grep -v HEAD | xargs -IX bash -c "commits_for_branch X"
-
-set -o allexport
