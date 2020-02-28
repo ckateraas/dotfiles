@@ -21,9 +21,6 @@ ln -sf ./configs/vimrc ~/.vimrc
 mkdir -p ~/.config/fish
 ln -sf ./configs/config.fish ~/.config/fish/config.fish
 
-mkdir -p ~/.config/yabar
-ln -sf ./configs/yabar.config ~/.config/yabar/yabar.conf
-
 mkdir -p ~/.config/polybar
 ln -sf ./configs/polybar.conf ~/.config/polybar/config
 
