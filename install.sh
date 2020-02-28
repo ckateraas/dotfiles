@@ -36,7 +36,5 @@ chsh "$(whoami)" -s "$(which fish)"
 mkdir -p ~/bin
 cp  ./bin/* ~/bin
 
-snap install jq
-snap install procs
-snap install atom
-snap install docker
+snap install code
+snap install signal-desktop
