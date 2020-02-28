@@ -1,4 +1,4 @@
-set $mod Mod4
+ set $mod Mod4
 
 gaps inner 10
 gaps outer 10
@@ -7,68 +7,25 @@ smart_gaps on
 # Use Hack font for i3
 font pango:Hack Nerd Font
 
+# Nordic characters
+bindsym $mod+Control+a exec bash -c "printf 'å' | iconv -f UTF8 -t UTF16 | xvkbd -xsendevent -utf16 -file -"
+bindsym $mod+Control+o exec bash -c "printf 'ø' | iconv -f UTF8 -t UTF16 | xvkbd -xsendevent -utf16 -file -"
+bindsym $mod+Control+e exec bash -c "printf 'æ' | iconv -f UTF8 -t UTF16 | xvkbd -xsendevent -utf16 -file -"
+
 # Background
 exec --no-startup-id feh --randomize --bg-fill /home/christian/Pictures/Backgrounds/*
 
 # Bar
-exec --no-startup-id yabar
-
-# use these keys for focus, movement, and resize directions when reaching for
-# the arrows is not convenient
-set $up l
-set $down k
-set $left j
-set $right semicolon
+exec_always --no-startup-id /home/christian/bin/launch-polybar
 
 # use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# Start a terminal
-bindsym $mod+Return exec /usr/local/bin/st
-
 # Kill focused window
-bindsym $mod+Shift+q kill
+#bindsym $mod+Shift+q kill
 
-# Bind rofi
-bindsym $mod+d exec rofi -show drun -theme Pop-Dark -display-drun "Run > "
-
-# Changing focus
-# bindsym $mod+$left focus left
-# bindsym $mod+$down focus down
-# bindsym $mod+$up focus up
-# bindsym $mod+$right focus right
-
-# Changing focus with arrow keys
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
-
-# Move focused window
-# bindsym $mod+Shift+$left move left
-# bindsym $mod+Shift+$down move down
-# bindsym $mod+Shift+$up move up
-# bindsym $mod+Shift+$right move right
-
-# Move focused window with the cursor keys:
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
-
-# Split in horizontal orientation
-bindsym $mod+h split h
-
-# Split in vertical orientation
-bindsym $mod+v split v
-
-# enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen toggle
-
-# change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+# Fallback in case something goes wrong
+bindsym $mod+Shift+o exec gnome-terminal -x bash
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -79,9 +36,6 @@ bindsym $mod+space focus mode_toggle
 # focus the parent container
 bindsym $mod+a focus parent
 
-# focus the child container
-#bindsym $mod+d focus child
-
 # move the currently focused window to the scratchpad
 bindsym $mod+Shift+minus move scratchpad
 
@@ -89,35 +43,11 @@ bindsym $mod+Shift+minus move scratchpad
 # If there are multiple scratchpad windows, this command cycles through them.
 bindsym $mod+minus scratchpad show
 
-# switch to workspace
-bindsym $mod+1 workspace 1
-bindsym $mod+2 workspace 2
-bindsym $mod+3 workspace 3
-bindsym $mod+4 workspace 4
-bindsym $mod+5 workspace 5
-bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10
-
-# move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1
-bindsym $mod+Shift+2 move container to workspace 2
-bindsym $mod+Shift+3 move container to workspace 3
-bindsym $mod+Shift+4 move container to workspace 4
-bindsym $mod+Shift+5 move container to workspace 5
-bindsym $mod+Shift+6 move container to workspace 6
-bindsym $mod+Shift+7 move container to workspace 7
-bindsym $mod+Shift+8 move container to workspace 8
-bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+0 move container to workspace 10
-
 # Reload the configuration file
-bindsym $mod+Shift+c reload
+#bindsym $mod+Shift+c reload
 
 # Restart i3 (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
+#bindsym $mod+Shift+r restart
 
 # Exit i3
 bindsym $mod+Shift+l exec "i3-nagbar -t warning -m 'Log out?' -b 'Yes' 'i3-msg exit'"
@@ -152,8 +82,3 @@ bindsym $mod+r mode "resize"
 
 # No borders
 for_window [class="^.*"] border pixel 0
-
-bindsym $mod+Shift+e exec /home/christian/bin/emoji
-
-# Lock
-bindsym $mod+m exec /home/christian/bin/lock.sh
