@@ -29,7 +29,10 @@ mkdir -p ~/.config/polybar
 ln -sf ./configs/polybar.conf ~/.config/polybar/config
 
 mkdir -p ~/.config/dunst
-ln -sf ./configs/dunstrc~/.config/dunst/dunstrc
+ln -sf ./configs/dunstrc ~/.config/dunst/dunstrc
+
+mkdir -p ~/.config/sxhkd
+ln -sf ./configs/sxhkdrc ~/.config/sxhkd/sxhkdrc
 
 chsh "$(whoami)" -s /usr/bin/fish
 
