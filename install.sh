@@ -34,7 +34,8 @@ ln -sf ./configs/dunstrc ~/.config/dunst/dunstrc
 mkdir -p ~/.config/sxhkd
 ln -sf ./configs/sxhkdrc ~/.config/sxhkd/sxhkdrc
 
-chsh "$(whoami)" -s /usr/bin/fish
+echo "$(which fish)" >> /etc/shells
+chsh "$(whoami)" -s "$(which fish)"
 
 mkdir -p ~/bin
 cp  ./bin/* ~/bin
