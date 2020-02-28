@@ -1,0 +1,77 @@
+super + Return
+  st
+
+super + shift + Return
+  firefox
+
+super + d
+  rofi -show drun -theme Pop-Dark -display-drun "Run > "
+
+super + shift + d
+  rofi -show run -theme Pop-Dark -display-run "Run > "
+
+super + y
+  st
+
+XF86AudioRaiseVolume
+  amixer -q -D pulse sset Master 5%+
+
+XF86AudioLowerVolume
+  amixer -q -D pulse sset Master 5%-
+
+XF86AudioMute
+  amixer -q -D pulse sset Master toggle
+
+super + k
+  i3-msg focus up || i3-msg focus output up
+
+super + j
+  i3-msg focus down || i3-msg focus output down
+
+super + h
+  i3-msg focus left || i3-msg focus output left
+
+super + l
+  i3-msg focus right || i3-msg focus output right
+ 
+super + shift + k
+  i3-msg move up
+
+super + shift + j
+  i3-msg move down
+
+super + shift + h
+  i3-msg move left
+
+super + shift + l
+  i3-msg move right
+ 
+super + {s, t, e}
+  i3-msg layout {stacking, tabbed, toggle split}
+
+super + {_,shift +} {1-9}
+  i3-msg {workspace, move container to workspace} {1-9}
+
+super + f
+  i3-msg fullscreen
+
+super + shift + q
+  i3-msg kill
+
+super + h
+  i3-msg split v
+
+super + v
+  i3-msg split h
+
+super + shift + r
+  i3-msg restart
+
+super + shift + c
+  i3-msg reload
+
+super + shift + e
+  /home/christian/bin/emoji
+
+super + m
+ /home/christian/bin/lock
