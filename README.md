@@ -21,6 +21,38 @@ cd dotfiles
 
 Congrats, you have now completed the setup!
 
+## Installing Docker
+
+Docker is available from Docker's own PPA. To get it working from your machine, you need to add their GPG key, then add the PPA, before finally installing Docker.
+
+```bash
+apt install curl
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
+```
+
+The next step is to verify you have got the correct key in the previous step.
+
+```bash
+$ apt-key fingerprint 0EBFCD88
+    
+pub   rsa4096 2017-02-22 [SCEA]
+      9DC8 5822 9FC7 DD38 854A  E2D8 8D81 803C 0EBF CD88
+uid           [ unknown] Docker Release (CE deb) <docker@docker.com>
+sub   rsa4096 2017-02-22 [S]
+```
+
+If your key matches, continue on and add the PPA.
+
+```bash
+add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
+```
+
+Replace `bionice` with what ever is the name of your Ubuntu distribution. If you do not know, run `lsb_release -cs`.
+
+```bash
+apt-get install docker-ce docker-ce-cli containerd.io
+```
+
 ## Installing Docker Compose
 
 A nice addition to Docker is Docker Compose. Install with the following:
