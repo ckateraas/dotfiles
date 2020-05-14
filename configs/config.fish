@@ -1,17 +1,17 @@
 setxkbmap -option ctrl:nocaps
 set fish_color_search_match --background='333'
+
 alias dra="docker rm -f (docker ps -qa)"
 alias g="git"
 alias dc="docker-compose"
+
 if status --is-interactive
     abbr --add --universal g git
     abbr --add --universal dc docker-compose
 end
 
-alias terraform="docker run --rm -it -v /home/christian/.ssh:/root/.ssh -v (pwd):/terraform terraform"
-alias ansible-playbook="docker run -it --rm -v (pwd):/ansible -v ~/.ssh:/home/ansible/.ssh slipway-ansible-playbook"
-alias ansible-vault="docker run -it --rm -v (pwd):/ansible -v ~/.ssh:/home/ansible/.ssh slipway-ansible-vault"
-alias ansible="docker run -it --rm -v (pwd):/ansible -v ~/.ssh:/home/ansible/.ssh ansible"
+alias terraform="docker run --rm -it -v ~/.ssh:/root/.ssh -v (pwd):/terraform terraform"
+alias ansible="docker run --rm -it -v ~/.ssh:/home/ansible/.ssh (pwd):/ansible ansible"
 alias portainer="docker run -d -p 9000:9000 --name portainer --restart always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer"
 
 set fish_greeting ""
