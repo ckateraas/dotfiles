@@ -6,8 +6,8 @@ set autoread
 set number relativenumber
 "Always show current position
 set ruler
-"
-" " Ignore case when searching
+set cursorline
+" Ignore case when searching
 set ignorecase
 " When searching try to be smart about cases
 set smartcase
