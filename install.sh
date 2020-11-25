@@ -13,3 +13,4 @@ mkdir -p ~/.config/fish
 cp ./configs/config.fish ~/.config/fish/config.fish
 
 chsh "$(whoami)" -s "$(which fish)"
+sudo chsh root -s "$(which fish)"
