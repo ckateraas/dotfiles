@@ -1,8 +1,9 @@
 #! /usr/bin/env bash
 
-apt-get update
-apt-get install -y vim tmux git fish
 set -euo pipefail
+
+sudo apt-get update
+sudo apt-get install -y vim tmux git fish
 
 cp ./configs/gitconfig ~/.gitconfig
 cp ./configs/tmux.conf ~/.tmux.conf
