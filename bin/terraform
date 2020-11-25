@@ -1,3 +1,0 @@
-#! /usr/bin/env bash
-
-docker run --rm -it -v /home/christian/.ssh:/root/.ssh -v $(pwd):/terraform terraform
