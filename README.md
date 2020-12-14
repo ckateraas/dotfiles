@@ -31,4 +31,10 @@ The `server-install.sh` script installs a different configuration for Tmux and f
 - The colors for Tmux are changed to help make it obvious you are on a remote system.
 - The Fish config has fewer aliases and does not change the keyboard layout with `setxkbmap`.
 
-Clone the repo, as with the local setup, but run `server-install.sh` instead of `install.sh`.
+You can skip cloning the repo with this `curl2bash` oneliner:
+
+```sh
+curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/ckateraas/dotfiles/master/server-install.sh | bash -
+```
+
+Or, to avoid `curl2bash`, clone the repo and run `server-install.sh` instead of `install.sh`.
